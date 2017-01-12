@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<MasterDetailPage xmlns="http://xamarin.com/schemas/2014/forms"
+                  xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                  xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+                  prism:ViewModelLocator.AutowireViewModel="True"
+                  x:Class="XFMDStatusBar.Views.MDPage">
+
+    <MasterDetailPage.Master>
+        <!--一般沒有特別設定，所以，抽屜面板會蓋掉狀態列與工具列-->
+        <ContentPage 
+            Title="Master" 
+            BackgroundColor="Green" >
+
+            <Label Text="「多奇數位創意」是一群擁有理想與信念的網際網路資源整合團隊，致力於達成「數位創意服務」的願景，追求不斷的卓越創新是我們的信念"
+                       HorizontalOptions="Center" VerticalOptions="Center"
+                       Margin="20"
+                       TextColor="White"
+                       />
+        </ContentPage>
+    </MasterDetailPage.Master>
+
+</MasterDetailPage>

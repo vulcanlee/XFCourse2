@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<local:MyMD xmlns="http://xamarin.com/schemas/2014/forms"
+                  xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                  xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+                  xmlns:local="clr-namespace:XFMDStatusBar"
+                  prism:ViewModelLocator.AutowireViewModel="True"
+                  x:Class="XFMDStatusBar.Views.MDRenderer">
+
+    <MasterDetailPage.Master>
+        <!--這個 MasterDetailPage 頁面，有在 Android 平台下有定義 Renderer，所以，狀態列會消失不見-->
+        <ContentPage 
+            Title="Master" 
+            BackgroundColor="Transparent">
+            <Grid
+                Margin="0,55,150,0"
+                >
+                <BoxView
+                    Color="Yellow"/>
+                <Label Text="「多奇數位創意」是一群擁有理想與信念的網際網路資源整合團隊，致力於達成「數位創意服務」的願景，追求不斷的卓越創新是我們的信念"
+                       HorizontalOptions="Center" VerticalOptions="Center"
+                       Margin="10"
+                       TextColor="Black"
+                       />
+            </Grid>
+        </ContentPage>
+    </MasterDetailPage.Master>
+
+</local:MyMD>
