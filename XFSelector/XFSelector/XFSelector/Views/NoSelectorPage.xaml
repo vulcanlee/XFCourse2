@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="XFSelector.Views.NoSelectorPage">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <DataTemplate x:Key="StandardPersonTemplate">
+                <ViewCell>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.4*" />
+                            <ColumnDefinition Width="0.3*" />
+                            <ColumnDefinition Width="0.3*" />
+                        </Grid.ColumnDefinitions>
+                        <Label Text="{Binding Name}" TextColor="{Binding ShowColor}" FontAttributes="Bold" />
+                        <Label Grid.Column="1" Text="{Binding DateOfBirth, StringFormat='{0:d}'}" TextColor="{Binding ShowColor}" />
+                        <Label Grid.Column="2" Text="{Binding Location}" TextColor="{Binding ShowColor}" HorizontalTextAlignment="End" />
+                    </Grid>
+                </ViewCell>
+            </DataTemplate>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    
+    <StackLayout Padding="20">
+        <Label Text="沒有使用資料樣板選擇器" FontAttributes="Bold" HorizontalOptions="Center" />
+        <!--<ListView 
+            ItemsSource="{Binding People}"
+            ItemTemplate="{StaticResource StandardPersonTemplate}" />-->
+        <ListView 
+            ItemsSource="{Binding People}"
+            >
+            <ListView.ItemTemplate>
+                <DataTemplate >
+                    <ViewCell>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="0.4*" />
+                                <ColumnDefinition Width="0.3*" />
+                                <ColumnDefinition Width="0.3*" />
+                            </Grid.ColumnDefinitions>
+                            <Label Text="{Binding Name}" TextColor="{Binding ShowColor}" FontAttributes="Bold" />
+                            <Label Grid.Column="1" Text="{Binding DateOfBirth, StringFormat='{0:d}'}" TextColor="{Binding ShowColor}" />
+                            <Label Grid.Column="2" Text="{Binding Location}" TextColor="{Binding ShowColor}" HorizontalTextAlignment="End" />
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+</ContentPage>

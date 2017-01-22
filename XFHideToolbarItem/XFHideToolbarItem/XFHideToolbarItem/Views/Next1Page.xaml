@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             xmlns:controls="clr-namespace:XFHideToolbarItem.CustomControls"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="XFHideToolbarItem.Views.Next1Page"             
+             Title="新一頁" 
+             x:Name="ThisPage"
+             >
+
+    <!--在這裡宣告工具列按鈕-->
+    <ContentPage.ToolbarItems>
+        <ToolbarItem
+            Text="{Binding 切換按鈕名稱}" 
+            Command="{Binding 顯示工具列Command}" />
+        <controls:HideableToolbarItem 
+            Text="刪除"
+            Command="{Binding 刪除Command}" 
+            IsVisible="{Binding 顯示工具列按鈕}" 
+            Parent="{x:Reference ThisPage}" />
+        <controls:HideableToolbarItem 
+            Text="匯出" 
+            Command="{Binding 匯出Command}" 
+            IsVisible="{Binding 顯示工具列按鈕}" 
+            Parent="{x:Reference ThisPage}" />
+    </ContentPage.ToolbarItems>
+    
+</ContentPage>
