@@ -9,7 +9,7 @@
     <StackLayout 
       Margin="20"
       HorizontalOptions="Fill" VerticalOptions="Fill">
-        <Label Text="{Binding Title}" />
+        <Label Text="{Binding Title}" FontAttributes="Italic,Bold"/>
         <ListView
             HorizontalOptions="Fill" VerticalOptions="FillAndExpand"
             ItemsSource="{Binding DataItemList}"
