@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="XFStartPrism.Views.MainPage"
+             Title="MainPage">
+
+    <!--這個 Grid 存在的目的，是為了配置相關控制項的位置與大小-->
+    <Grid
+        >
+        <!--設定這個頁面的背景顏色-->
+        <BoxView
+            Color="Green"/>
+        <!--透過 Grid 版面配置，您可以將頁面製作成更加豐富的樣貌-->
+        <Grid
+            Margin="20,50,20,30"
+            >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="200"/>
+                <RowDefinition Height="50" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="50" />
+            </Grid.RowDefinitions>
+
+            <!--忙碌中控制項-->
+            <!--https://developer.xamarin.com/api/type/Xamarin.Forms.ActivityIndicator/-->
+            <ActivityIndicator  
+                Grid.Row="0" Grid.Column="0"
+                Color="Blue"
+                WidthRequest="100" HeightRequest="100"
+                IsRunning="{Binding 是否忙碌中}"
+                HorizontalOptions="Center" VerticalOptions="Center"
+                />
+
+            <!--透過 ProgressBar 控制項，可以清楚讓使用者知道，應用程式處理進度狀況-->
+            <!--https://developer.xamarin.com/api/type/Xamarin.Forms.ProgressBar/-->
+            <ProgressBar 
+                Grid.Row="1" Grid.Column="0"
+                Progress="{Binding 處理進度值}"   
+                IsVisible="{Binding 顯示進度棒}"
+                />
+
+            <!--這是一個很好的技巧，動態更新處理工作內容，讓使用者更加安心與明瞭應用程式正在做哪些事情-->
+            <!--要進行資料綁定的物件型別，請參考相關控制項中的說明文件
+            https://developer.xamarin.com/api/type/Xamarin.Forms.Label/-->
+            <Label 
+                Grid.Row="2" Grid.Column="0"
+                HorizontalOptions="Center" VerticalOptions="Start"
+                Text="{Binding 處理進度說明文字}"
+                TextColor="{Binding 處理進度說明文字顏色}"
+                FontSize="{Binding 處理進度說明文字大小}"
+                LineBreakMode="TailTruncation"
+                IsVisible="{Binding 顯示處理進度說明文字}"
+                />
+
+            <!--按下這個按鈕，觸發開始執行工作-->
+            <Button 
+                Grid.Row="3"
+                Text="啟動" 
+                Command="{Binding 啟動Command}"
+                />
+        </Grid>
+    </Grid>
+
+</ContentPage>
