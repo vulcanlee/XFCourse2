@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             xmlns:userControls="clr-namespace:XFVerifyMessage.UserControls"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="XFVerifyMessage.Views.MainPage"
+             Title="MainPage">
+    <Grid
+        RowSpacing="0" ColumnSpacing="0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="100" />
+        </Grid.RowDefinitions>
+
+        <StackLayout
+            Orientation="Vertical"
+            Spacing="0"
+            Margin="50,20"
+            >
+            <userControls:具資料驗證的Entry
+                BindingContext="{Binding 電子郵件信箱}"
+                />
+            <userControls:具資料驗證的Entry
+                BindingContext="{Binding 密碼}"
+                />
+        </StackLayout>
+
+        <Button
+            Grid.Row="1"
+            Text="儲存"
+            Margin="50,20"
+            IsEnabled="False"
+            Command="{Binding 儲存Command}"
+            >
+            <Button.Triggers>
+                <MultiTrigger
+                    TargetType="Button"
+                    >
+                    <MultiTrigger.Conditions>
+                        <BindingCondition
+                            Binding="{Binding 電子郵件信箱.輸入的欄位文字驗證無誤}"
+                            Value="True"/>
+                        <BindingCondition
+                            Binding="{Binding 密碼.輸入的欄位文字驗證無誤}"
+                            Value="True"/>
+                    </MultiTrigger.Conditions>
+                    <Setter Property="IsEnabled" Value="True"/>
+                </MultiTrigger>
+            </Button.Triggers>
+        </Button>
+    </Grid>
+</ContentPage>

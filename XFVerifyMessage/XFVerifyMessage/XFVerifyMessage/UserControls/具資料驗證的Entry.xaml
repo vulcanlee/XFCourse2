@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView 
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    x:Class="XFVerifyMessage.UserControls.具資料驗證的Entry">
+  <ContentView.Content>
+        <StackLayout
+            Orientation="Vertical"
+            Spacing="0">
+            <Entry
+                Placeholder="{Binding 輸入的欄位提示文字}"
+                Text="{Binding 輸入的欄位文字}" />
+            <Label                
+                TextColor="Red"
+                Text="{Binding 錯誤訊息文字}"
+                IsVisible="{Binding 顯示錯誤訊息文字}"
+                />
+        </StackLayout>
+    </ContentView.Content>
+</ContentView>
