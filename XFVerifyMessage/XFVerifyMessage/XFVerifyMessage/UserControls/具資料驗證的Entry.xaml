@@ -3,13 +3,18 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
     x:Class="XFVerifyMessage.UserControls.具資料驗證的Entry">
-  <ContentView.Content>
+
+    <!--這裡宣告一個組合式的使用者控制項，這個組合控制項，由一個 Entry 與 一個 Label 組合起來，
+    相關的行為與顯示的內容、狀態，將會由 ViewModel 來控制-->
+    <ContentView.Content>
         <StackLayout
             Orientation="Vertical"
             Spacing="0">
+            <!--這個控制項，讓使用者輸入文字之用-->
             <Entry
                 Placeholder="{Binding 輸入的欄位提示文字}"
                 Text="{Binding 輸入的欄位文字}" />
+            <!--當使用者輸入的內容不合法的時候，這個控制項將會顯示出來，讓使用者看到發生了甚麼原因-->
             <Label                
                 TextColor="Red"
                 Text="{Binding 錯誤訊息文字}"

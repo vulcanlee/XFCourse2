@@ -6,26 +6,34 @@
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="XFVerifyMessage.Views.MainPage"
              Title="MainPage">
+    
     <Grid
         RowSpacing="0" ColumnSpacing="0">
+        <!--這裡把螢幕的切割成為兩個部分，最下方是固定的，上方的區域為螢幕的剩下區域-->
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
+            <!--固定高度為 100 與裝置無關的畫素-->
             <RowDefinition Height="100" />
         </Grid.RowDefinitions>
 
+        <!--這裡沒有指定要放在哪個 Grid 格子，因此，將會使用
+        Grid.Row="0" Grid.Column="0"-->
         <StackLayout
             Orientation="Vertical"
             Spacing="0"
             Margin="50,20"
             >
+            <!--使用組合式的文字輸入盒的使用者控制項-->
             <userControls:具資料驗證的Entry
                 BindingContext="{Binding 電子郵件信箱}"
                 />
+            <!--使用組合式的文字輸入盒的使用者控制項-->
             <userControls:具資料驗證的Entry
                 BindingContext="{Binding 密碼}"
                 />
         </StackLayout>
 
+        <!--把這個按鈕設定放在頁面的最下方-->
         <Button
             Grid.Row="1"
             Text="儲存"
@@ -33,18 +41,24 @@
             IsEnabled="False"
             Command="{Binding 儲存Command}"
             >
+            <!--這裡宣告並且使用了多條件觸發，每個觸發條件使用資料綁定來決定條件是否成立
+            當所有條件成立之後，這個按鈕就可以使用了
+            因此，我們並不需要寫任何邏輯程式碼，只需要 XAML 宣告即可-->
             <Button.Triggers>
                 <MultiTrigger
                     TargetType="Button"
                     >
                     <MultiTrigger.Conditions>
+                        <!--電子郵件信箱 已經輸入完成-->
                         <BindingCondition
                             Binding="{Binding 電子郵件信箱.輸入的欄位文字驗證無誤}"
                             Value="True"/>
+                        <!--密碼 已經輸入完成-->
                         <BindingCondition
                             Binding="{Binding 密碼.輸入的欄位文字驗證無誤}"
                             Value="True"/>
                     </MultiTrigger.Conditions>
+                    <!--當所有條件都設定完成後，這個按鈕將會被啟用-->
                     <Setter Property="IsEnabled" Value="True"/>
                 </MultiTrigger>
             </Button.Triggers>

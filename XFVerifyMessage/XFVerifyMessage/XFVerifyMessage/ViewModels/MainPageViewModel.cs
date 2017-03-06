@@ -108,19 +108,23 @@ namespace XFVerifyMessage.ViewModels
         /// <returns></returns>
         private async Task ViewModelInit()
         {
+            #region 進行 電子郵件信箱 欄位做初始化
             電子郵件信箱.輸入的欄位提示文字 = "請輸入電子郵件信箱";
             電子郵件信箱.輸入的欄位文字 = "";
             電子郵件信箱.資料驗證方式 = 資料驗證方式.電子郵件;
             電子郵件信箱.輸入的欄位文字驗證無誤 = false;
             電子郵件信箱.錯誤訊息文字 = "請輸入正確的電子郵件信箱";
             電子郵件信箱.顯示錯誤訊息文字 = false;
+            #endregion
 
+            #region 進行 密碼 欄位做初始化
             密碼.輸入的欄位提示文字 = "請輸入密碼";
             密碼.輸入的欄位文字 = "";
             密碼.資料驗證方式 = 資料驗證方式.密碼;
             密碼.輸入的欄位文字驗證無誤 = false;
             密碼.錯誤訊息文字 = "密碼長度須超過8個字元且強度須符合規定";
             密碼.顯示錯誤訊息文字 = false;
+            #endregion
 
             await Task.Delay(100);
         }

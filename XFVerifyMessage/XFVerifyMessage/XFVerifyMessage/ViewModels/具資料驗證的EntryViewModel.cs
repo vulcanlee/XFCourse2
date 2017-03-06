@@ -32,6 +32,7 @@ namespace XFVerifyMessage.ViewModels
             set
             {
                 this.SetProperty(ref this._輸入的欄位文字, value);
+                #region 在這裡，將會根據使用者輸入的內容，做出相關邏輯處理
                 if (string.IsNullOrEmpty(_輸入的欄位文字))
                 {
                     顯示錯誤訊息文字 = false;
@@ -63,6 +64,7 @@ namespace XFVerifyMessage.ViewModels
                         輸入的欄位文字驗證無誤 = false;
                     }
                 }
+                #endregion
             }
         }
         #endregion
