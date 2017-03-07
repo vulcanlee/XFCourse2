@@ -34,6 +34,7 @@
         </StackLayout>
 
         <!--把這個按鈕設定放在頁面的最下方-->
+        <!--請試著把 Command 屬性宣告移除，測試看看，按鈕是否會自動啟用與停用-->
         <Button
             Grid.Row="1"
             Text="儲存"
@@ -59,6 +60,7 @@
                             Value="True"/>
                     </MultiTrigger.Conditions>
                     <!--當所有條件都設定完成後，這個按鈕將會被啟用-->
+                    <!--但是，為什麼沒有作用呢?-->
                     <Setter Property="IsEnabled" Value="True"/>
                 </MultiTrigger>
             </Button.Triggers>

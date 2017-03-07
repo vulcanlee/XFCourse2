@@ -70,6 +70,16 @@ namespace XFVerifyMessage.ViewModels
             {
                 await _dialogService.DisplayAlertAsync("", "已經儲存", "確定");
             });
+
+            #region 若在 Button 上使用了 Command，則這個按鈕是否可以使用，需要使用canExecuteMethod
+            //儲存Command = new DelegateCommand(async () =>
+            //{
+            //    await _dialogService.DisplayAlertAsync("", "已經儲存", "確定");
+            //}, () =>
+            //{
+            //    return 電子郵件信箱.輸入的欄位文字驗證無誤 && 密碼.輸入的欄位文字驗證無誤;
+            //});
+            #endregion
             #endregion
 
             #region 事件聚合器訂閱
