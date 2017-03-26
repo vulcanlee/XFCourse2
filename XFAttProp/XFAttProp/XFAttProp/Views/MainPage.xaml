@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             xmlns:local="clr-namespace:XFAttProp"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="XFAttProp.Views.MainPage"
+             Title="MainPage">
+    
+    <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+        <Label Text="{Binding Title}" />
+        <Entry
+            local:CustomEntryAtta.HintType="Email"/>
+        <Entry
+            local:CustomEntryAtta.HintType="ACCOUNT" />
+
+        <Entry
+            x:Name="entry"
+            local:CustomEntryAtta.HintType="Email" />
+
+        <Entry
+            local:CustomEntryAtta.HintType="{Binding HintType}" />
+
+        <Button
+            Text="使用 Code Behind 變更 entry 附加屬性"
+            Clicked="Button_Clicked"/>
+
+        <Button
+            Text="使用 ViewModel 來變更附加屬性" 
+            Command="{Binding HintTypeCommand}" />
+    </StackLayout>
+</ContentPage>
