@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             xmlns:local="clr-namespace:XFBindProp"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="XFBindProp.Views.MainPage"
+             Title="MainPage">
+    
+    <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+        <Label Text="{Binding Title}" />
+        <local:MyEntry
+            HintType="EMail"/>
+        <local:MyEntry
+            HintType="ACCOUnt"/>
+
+        <local:MyEntry
+            x:Name="myentry"
+            HintType="Email"/>
+
+        <local:MyEntry
+            HintType="{Binding MyHint}" />
+
+        <Button
+            x:Name="btn1"
+            Text="使用 CLR 屬性系統來變更可綁定屬性值"
+            Clicked="btn1_Clicked"
+            />
+        <Button
+            x:Name="btn2"
+            Text="使用 SetValue 來變更可綁定屬性值"
+            Clicked="btn2_Clicked"
+            />
+
+        <Button
+            Text="使用 ViewModel 來變更可綁定屬性值"
+            Command="{Binding changePropertyCommand}" />
+    </StackLayout>
+</ContentPage>
