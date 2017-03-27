@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             xmlns:local="clr-namespace:XFPickerGear"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="XFPickerGear.Views.MainPage"
+             Title="MainPage">
+
+    <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+        <Label Text="{Binding Title}" />
+        <local:BindablePicker
+            ItemsSource="{Binding Picker1Source}"
+            SelectedItem="{Binding Picker1Selected}"
+            SelectedItemCommand="{Binding Picker1SelectedCommand}" />
+        <local:BindablePicker
+            ItemsSource="{Binding Picker2Source}"
+            SelectedItem="{Binding Picker2Selected}"
+            SelectedItemCommand="{Binding Picker2SelectedCommand}" />
+
+        <Label Text="{Binding Picker1Selected, StringFormat='Picker1 is {0}'}"/>
+        <Label Text="{Binding Picker2Selected, StringFormat='Picker2 is {0}'}" />
+    </StackLayout>
+</ContentPage>
