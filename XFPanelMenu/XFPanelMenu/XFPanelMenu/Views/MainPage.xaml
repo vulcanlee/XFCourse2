@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             xmlns:userControls="clr-namespace:XFPanelMenu.UserContols"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="XFPanelMenu.Views.MainPage"
+             Title="MainPage">
+    
+    <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+        <userControls:MyMenuPanel
+            BindingContext="{Binding MenuPanel}" />
+    </StackLayout>
+</ContentPage>

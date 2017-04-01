@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView
+    xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    x:Class="XFPanelMenu.UserContols.MyMenuButton"
+    IsVisible="{Binding Visible}"
+    >
+    
+    <ContentView.Content>
+        <Grid
+            RowSpacing="0" ColumnSpacing="0"
+            >
+            <BoxView
+                Color="{Binding Color}"
+                >
+                <BoxView.GestureRecognizers>
+                    <TapGestureRecognizer 
+                        Command="{Binding ButtonTapCommand}"
+                        CommandParameter="{Binding .}" />
+                </BoxView.GestureRecognizers>
+            </BoxView>
+            <Label
+                Margin="10,0"
+                VerticalOptions="Center"
+                Text="{Binding Text}"
+                >
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer
+                        Command="{Binding ButtonTapCommand}"
+                        CommandParameter="{Binding .}"
+                        />
+                </Label.GestureRecognizers>
+            </Label>
+        </Grid>
+    </ContentView.Content>
+</ContentView>
